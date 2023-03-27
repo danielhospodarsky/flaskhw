@@ -40,6 +40,10 @@ def add():
             "activities": activities_string,
         }
 
+        with open('data.csv', mode='a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(friend_dict)
+
         print(friend_dict)
         friends_dict.append(
             friend_dict
