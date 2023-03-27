@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, redirect, url_for
+import csv
 
 app = Flask(__name__)
 
@@ -40,10 +41,6 @@ def add():
             "activities": activities_string,
         }
 
-        with open('data.csv', mode='a', newline='') as file:
-            writer = csv.writer(file)
-            writer.writerow(friend_dict)
-
         print(friend_dict)
         friends_dict.append(
             friend_dict
@@ -56,3 +53,30 @@ def add():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+# Route for homepage 
+"""
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+# Route for adding data
+@app.route("/add", methods=["POST"])
+def add_data():
+    # Collect data from form
+    name = request.form.get("name")
+    email = request.form.get("email")
+    age = request.form.get("age")
+    
+    # Open CSV file and write data
+    with open("data.csv", "a", newline="") as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow([name, email, age])
+    
+    return "Data received and processed successfully."
+
+# Route for about page
+@app.route("/about")
+def about():
+    return render_template("about.html")
+"""
