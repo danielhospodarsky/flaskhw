@@ -1,5 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for
-import csv
+from flask import Flask, request, render_template, redirect, url_for,
 
 app = Flask(__name__)
 
@@ -25,7 +24,7 @@ def add():
         fname = form["fname"]
         flavor = form["flavor"]
         read = form["read"]
-        activities = form.getlist("activities")  # this is a PYthon list
+        activities = form.getlist("activities")  # this is a Python list
 
         print(fname)
         print(flavor)
@@ -51,11 +50,11 @@ def add():
         return redirect(url_for("index"))
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
 
 # Route for homepage 
 """
+import csv
+
 @app.route("/")
 def index():
     return render_template("index.html")
