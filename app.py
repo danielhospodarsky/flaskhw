@@ -49,7 +49,10 @@ def add():
     else:
         return redirect(url_for("index"))
 
-
+@app.route("/about")
+def about():
+    return render_template('about.html')
+    
 
 # Route for homepage 
 """
