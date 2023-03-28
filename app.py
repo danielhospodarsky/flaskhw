@@ -41,44 +41,16 @@ def add():
         }
 
         print(friend_dict)
+
         friends_dict.append(
             friend_dict
         )  # append this dictionary entry to the larger friends dictionary
         print(friends_dict)
+
         return redirect(url_for("index"))
     else:
         return redirect(url_for("index"))
 
-@app.route("/about")
+@app.route("/about", methods=["GET"])
 def about():
-    return render_template('about.html')
-    
-
-# Route for homepage 
-"""
-import csv
-
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-# Route for adding data
-@app.route("/add", methods=["POST"])
-def add_data():
-    # Collect data from form
-    name = request.form.get("name")
-    email = request.form.get("email")
-    age = request.form.get("age")
-    
-    # Open CSV file and write data
-    with open("data.csv", "a", newline="") as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow([name, email, age])
-    
-    return "Data received and processed successfully."
-
-# Route for about page
-@app.route("/about")
-def about():
-    return render_template("about.html")
-"""
+    return render_template("about.html", pageTitle="About my Web form",)
